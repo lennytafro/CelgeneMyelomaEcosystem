@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Celgene Myeloma Marketing Ecosystem</title>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+  </head>
+  <body class="container">
+    <h1>Celgene Myeloma Ecosystem</h1>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <h3>Myeloma Marketing Assets</h3>
+    <script>
+      axios.get('/get/server')
+        .then(function (response) {
+          document.getElementById('people').innerHTML = response.data.map(function (person) {
+            return (
+              '<div id="' + person.fields.id + '" class="ecosystem-node">' +
+              '  <table width="200" border="0" cellspacing="0" cellpadding="2">' +
+              '    <tbody>' +
+              '      <tr>' +
+              '        <th scope="col">' + person.fields.Name + '</th>' +
+              '      </tr>' +
+              '      <tr>' +
+              '        <td><div class="picholder"><img src="' + person.fields.Thumbnail[0].thumbnails.large.url + '" class="img-eco-size" width="200" height="419" alt=""/></div></td>' +
+              '     </tr>' +
+              '      <tr><td>' + person.fields['Approval Status'] + ' | ' + person.fields['Promo Status'] + ' | ' + person.fields['Beacon Status'] + ' </td></tr>' +
+              '    </tbody>' +
+              '    </table>' +
+              '</div>'
+            );
+          }).join('');
+        })
+        .catch(function (err) {
+          document.getElementById('people').innerHTML = '<li class="text-danger">' + err.message + '</li>';
+        });
+    </script>
+  </body>
+</html>
+
+
+
+
+
