@@ -1,0 +1,156 @@
+<html>
+<head>
+    <title>Celgene Myeloma App</title>
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    
+  <link href="assets/styles/vis-network.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/styles/style_main.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <!-- <div id="mynetwork"></div> -->
+    <div id="app">
+        <h1>Celgene Ecosystem Assets</h1>
+        <div id="example">
+          <h3>Original message: "{{ message }}"</h3>
+          <h3>Computed reversed message: "{{ reversedMessage }}"</h3>
+        </div>
+
+        <transition-group name="list" tag="ul">
+            <li v-for="item in items" v-bind:key="item" class="list-item">
+                <div>
+                    <h3>{{ item['fields']['Name'] }}</h3>
+                    <p class="brand"><span class="label">Brand: </span>{{ item['fields']['Brand'] }}</p>
+                    <p class="status"><span class="label">Status: </span>{{ item['fields']['Beacon Status'] }}</p>
+                    <p class="tactic"><span class="label">Tactic: </span>{{ item['fields']['Tactic'] }}</p>
+                    <div class="imgbox"><img :src="item['fields']['Thumbnail'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Thumbnail']" width="150"></div>
+                </div>
+            </li>
+        </transition-group>
+
+
+    </div><!-- close app-->
+
+    <div id="myeloma_assets"></div>
+
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+    <script type="text/javascript" src="scripts/vis.min.js"></script>
+    <script type="text/javascript">
+
+        var nodes = null;
+        var edges = null;
+        var network = null;
+
+        var DIR = 'img/refresh-cl/';
+        var LENGTH_MAIN = 150;
+        var LENGTH_SUB = 50;
+
+
+        // var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="390" height="65">' +
+        //     '<rect x="0" y="0" width="100%" height="100%" fill="#7890A7" stroke-width="20" stroke="#ffffff" ></rect>' +
+        //     '<foreignObject x="15" y="10" width="100%" height="100%">' +
+        //    ' <ul><li><h3>Revlimid Patient Website</h3> <p>Revlimid</p> <p><strong>Beacon Status: </strong>Items All In</p> <p><strong>Tactic: </strong>Proposed-Patient Website</p> <img src="https://dl.airtable.com/UcU4GZYRySYd3Rirl4mQ_large_RevPatBrndWeb.png" alt="" width="150"></li></ul>' +
+        //     '</foreignObject>' +
+        //     '</svg>';
+
+
+        // var url = "data:image/svg+xml;charset=utf-8,"+ encodeURIComponent(svg);
+
+        // // Called when the Visualization API is loaded.
+        // function draw() {
+        //     // Create a data table with nodes.
+        //     nodes = [];
+
+        //     // Create a data table with links.
+        //     edges = [];
+
+        //     nodes.push({id: 1, label: 'Get HTML', image: url, shape: 'image'});
+        //     nodes.push({id: 2, label: 'Using SVG', image: url, shape: 'image'});
+        //     edges.push({from: 1, to: 2, length: 300});
+
+        //     // create a network
+        //     var container = document.getElementById('mynetwork');
+        //     var data = {
+        //         nodes: nodes,
+        //         edges: edges
+        //     };
+        //     var options = {
+        //             edges: {smooth: false},
+        //             font: {size: 11},
+        //             widthConstraint: {maximum: 90},
+        //             nodes: {
+        //                 shape: 'box',
+        //                 margin: 10,
+        //                 widthConstraint: {minimum: 300}
+        //             },
+        //             physics: {
+        //                 enabled: false,
+        //                 stabilization: false
+        //             }
+        //     };
+        //     network = new vis.Network(container, data, options);
+        // }
+
+
+        var vm = new Vue({
+          el: '#example',
+          data: {
+            message: 'Hello'
+          },
+          computed: {
+            // a computed getter
+            reversedMessage: function () {
+              // `this` points to the vm instance
+              return this.message.split('').reverse().join('')
+            }
+          }
+        })
+
+        var assetBucket = [{ id: 100, label: 'label text 1', x: -50, y: -300 },{ id: 101, label: 'Label Text 2', x: 12, y: -800 }];
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                items: []
+            },
+            mounted: function(){
+               this.loadItems(); 
+            },
+            methods: {
+                loadItems: function(){
+                    
+                    // Init variables
+                    var self = this
+                    var app_id = "appvjUANOYCIhhpIC";
+                    var app_key = "keyuf7sO87qug1SCZ";
+                    this.items = []
+                    axios.get(
+                        
+                        "https://api.airtable.com/v0/"+app_id+"/Assets?view=All%20Asset%20Grid",
+                        { 
+                            headers: { Authorization: "Bearer "+app_key } 
+                        }
+                    ).then(function(response){
+
+
+                        self.items = response.data.records;
+                        assetBucket = JSON.stringify(response.data.records);
+
+                        
+
+
+                    }).catch(function(error){
+                        console.log(error)
+                    })
+                }
+            }
+        })
+
+        console.log('assetBucket LEngth: ' + assetBucket.length);
+
+    </script>
+
+</body>
+</html>

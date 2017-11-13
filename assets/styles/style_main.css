@@ -1,0 +1,96 @@
+/* style for celgene myeloma */
+
+
+body, ul, li{
+    font-family: 'Barlow Condensed', 'Helvetica Condensed', 'Arial Condensed', Helvetica, Arial,  sans-serif;
+}
+
+
+/*stuff for the canvas visjs*/
+
+#mynetwork {
+  width: 90%;
+  height: 90%;
+  border: 1px solid lightgray;
+}
+code {
+  font-size: 14px;
+  background: #dddddd;
+}
+p {
+  max-width: 600px;
+}
+.indented {
+  margin-left: 30px;
+}
+.sep {
+  height: 1px;
+  width: 35%;
+  margin-left: 40px;
+  background-color: #dddddd;
+}
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .9s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
+
+
+
+
+/*styles for each card*/
+/*styles for each card*/
+
+.list-item  h3{
+	margin-top: 5px;
+	font-size: 1.5em;
+}
+.list-item  p{
+	font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
+	margin-bottom: 0px;
+}
+.list-item  p.brand{
+	font-size: 1.1em;
+}
+.label {
+
+}
+.list-item {
+  display: block;
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border: 1px solid red;
+  background-color: #DDDDDD;
+  min-height: 350px;
+  max-width: 200px;
+  padding: 0px 5px 10px 5px;
+}
+
+.imgbox{
+	height: 200px;
+	width: 150px;
+	overflow: hidden;
+	margin: 0px;
+	display: block;
+	text-align: center;
+	background-color: blue;
+}
+
+
+
+
+
+/*animation for the cards*/
+
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
