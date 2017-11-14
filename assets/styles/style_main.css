@@ -3,8 +3,11 @@
 
 body, ul, li{
     font-family: 'Barlow Condensed', 'Helvetica Condensed', 'Arial Condensed', Helvetica, Arial,  sans-serif;
-}
 
+}
+body{
+  background-color: #DDDDDD;
+}
 
 /*stuff for the canvas visjs*/
 
@@ -46,17 +49,21 @@ p {
 
 .list-item  h3{
 	margin-top: 5px;
-	font-size: 1.5em;
+	font-size: 1.4em;
 }
 .list-item  p{
 	font-family: 'Helvetica Neue', Helvetica, Arial,  sans-serif;
-	margin-bottom: 0px;
+	margin-bottom: 3px;
 }
-.list-item  p.brand{
-	font-size: 1.1em;
+.list-item  p.status, .list-item  p.tactic{
+	font-size: .85em;
+  color: #222;
+  font-family: 'Barlow Condensed', 'Helvetica Condensed', 'Arial Condensed', Helvetica, Arial,  sans-serif;
 }
 .label {
-
+	color: #222;
+	font-family: 'Barlow Condensed', 'Helvetica Condensed', 'Arial Condensed', Helvetica, Arial,  sans-serif;
+	font-weight: bold;
 }
 .list-item {
   display: block;
@@ -64,14 +71,16 @@ p {
   margin-bottom: 10px;
   margin-right: 10px;
   border: 1px solid red;
-  background-color: #DDDDDD;
-  min-height: 350px;
+  background-color: #ffffff;
+  min-height: 300px;
+  max-height: 300px;
+  overflow: hidden;
   max-width: 200px;
   padding: 0px 5px 10px 5px;
 }
 
 .imgbox{
-	height: 200px;
+	height: 120px;
 	width: 150px;
 	overflow: hidden;
 	margin: 0px;
@@ -80,8 +89,21 @@ p {
 	background-color: blue;
 }
 
-
-
+.found_items{
+	color: green;
+}
+.missing_items{
+	color: red;
+}
+.itemlabel{color: #CCCCCC;}
+.brandthumb{
+	height: 40px;
+	max-height: 40px;
+	max-width:  100px;
+}
+.aud-icon{
+  height: 18px;
+}
 
 
 /*animation for the cards*/
