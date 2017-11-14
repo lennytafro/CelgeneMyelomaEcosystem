@@ -9,6 +9,10 @@ body{
   background-color: #DDDDDD;
 }
 
+h1 {
+  margin-left: 1.1em;
+}
+
 /*stuff for the canvas visjs*/
 
 #mynetwork {
@@ -70,13 +74,16 @@ p {
   float: left;
   margin-bottom: 10px;
   margin-right: 10px;
-  border: 1px solid red;
+  border: 1px solid #cccccc;
   background-color: #ffffff;
   min-height: 300px;
   max-height: 300px;
   overflow: hidden;
   max-width: 200px;
   padding: 0px 5px 10px 5px;
+  -webkit-box-shadow: 6px 6px 34px -5px rgba(119,119,119,0.62);
+  -moz-box-shadow: 6px 6px 34px -5px rgba(119,119,119,0.62);
+  box-shadow: 6px 6px 34px -5px rgba(119,119,119,0.62);
 }
 
 .imgbox{
@@ -86,7 +93,10 @@ p {
 	margin: 0px;
 	display: block;
 	text-align: center;
-	background-color: blue;
+	background: linear-gradient(#044B92, white);
+}
+
+
 }
 
 .found_items{
