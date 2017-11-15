@@ -22,13 +22,25 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
 
-        <img src="assets/images/logo.png" title="Beacon Healthcare Communications">
-        <h1>Celgene Myeloma Marketing Ecosystem</h1>
-
-
         <div id="app">
+
+
+            <div v-if="show" class="scrodal_container">
+                <div v-for="item in holdItem" class="scrodal_content" v-bind:id="item['fields']['Celgene Tactic ID']" v-show="show">
+                    {{ getAssetContent(item) }}
+                <button @click="killScrotie">X</button>
+            </div>
+
+            </div>
+
             
+            <img src="assets/images/logo.png" title="Beacon Healthcare Communications">
+            <h1>Lenny Myeloma Marketing Ecosystem</h1>
+
             <button v-on:click="say('what')">Say what</button>
+
+
+
 
             <transition-group name="list" tag="ul">
                 <li v-for="item in items" v-bind:key="item" class="list-item">
@@ -57,16 +69,17 @@
                         <!-- ASSET NAME -->
                         <h3>{{ item['fields']['Name'] }}</h3>
                         <!-- BUTTON  -->
-                        <button v-on:click="popMe(item)">View Me</button>
+                        <button v-on:click="popScrotie(item)">View Me</button>
                         </p>
                     </div>
                 </li>
             </transition-group>
 
 
+
+
         </div>
         <!-- close app-->
-
 
 
         <script type="text/javascript" src="https://unpkg.com/vue"></script>

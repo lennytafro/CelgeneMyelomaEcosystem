@@ -180,3 +180,59 @@ p {
   transform: translateY(30px);
 }
 
+
+
+
+/*. support for the scrodals */
+
+.scrodal_container{
+
+/*  display: block;
+  visibility: hidden;*/
+  position: relative;
+  bottom: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+
+}
+
+.scrodal_content{
+/*  display: block;
+  visibility: hidden;*/
+  position: relative;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 60%;
+  overflow: scroll;
+  background: #fff;
+  color: #777;
+}
+
+.scrodal_content button {
+    position: relative;
+    width: 20px;
+    top: 30px;
+    float: right;
+    margin-right: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*. end support for the scrodals */
+
+

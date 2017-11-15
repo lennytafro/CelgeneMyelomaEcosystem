@@ -1,41 +1,11 @@
-var vm = new Vue({
-  el: '#frenchfry',
-  data: {
-    missingitem: true
-  },
-  computed: {
-    // a computed getter
-    // checkPresent: function () {
-    //   // `this` points to the vm instance
-        findItem : function(){
-             missingitem = false;
-            return this.missingitem
-        }
-    //   return this.missingitem
-    // }
-  }
-})
 
-var vm = new Vue({
-  el: '#example',
-  data: {
-    message: 'Hello'
-  },
-  computed: {
-    // a computed getter
-    reversedMessage: function () {
-      // `this` points to the vm instance
-      return this.message.split('').reverse().join('')
-    }
-  }
-})
-
-// var assetBucket=[];
 
 var app = new Vue({
     el: '#app',
     data: {
-        items: []
+        items: [],
+        holdItem: [],
+        show: false
     },
     mounted: function(){
        this.loadItems(); 
@@ -48,28 +18,24 @@ var app = new Vue({
             var app_id = "appvjUANOYCIhhpIC";
             var app_key = "keyuf7sO87qug1SCZ";
             this.items = []
-            axios.get(
-                
+            axios.get(  
                 "https://api.airtable.com/v0/"+app_id+"/Assets?view=All%20Asset%20Grid",
                 { 
                     headers: { Authorization: "Bearer "+app_key } 
                 }
             ).then(function(response){
 
-
                 self.items = response.data.records;
-                // assetBucket = self.items;
-                
-
 
             }).catch(function(error){
                 console.log(error)
             })
         },
-        filterItems: function(items) {
-            return items.filter(function(item) {
-              return item.price > 10;
-            })
+        getAssetContent: function(item){
+            var strHTML = "<button Say what</button>";
+            strHTML += item['fields']['Beacon Status'];
+            strHTML += "<button>Say what</button>";
+            return strHTML;
         },
         checkStatus: function(item){
             var stus = item['fields']['Beacon Status'];
@@ -109,8 +75,22 @@ var app = new Vue({
           alert(message)
         },
         popMe: function(item){
+
             var message = "I am a " + item['fields']['Tactic']; + "!";
             alert(message)
+        },
+        popScrotie: function(item){
+                app.holdItem.length = 0;
+                console.log("Hold Item Length: " +  app.holdItem.length);
+                app.show = true;
+                var message = "I am a " + item['fields']['Tactic']; + "!";
+                console.log(message);
+                app.holdItem.push(item);
+                console.log("Hold Item Length: " +  app.holdItem.length);
+
+        },
+        killScrotie() {
+            app.show = false
         }
     }
 })
