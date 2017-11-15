@@ -1,181 +1,77 @@
 <html>
-<head>
-    <meta name="viewport" content="width=device-width">
-    <meta name="viewport" content="initial-scale=1.0">
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="initial-scale=1.0">
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TKS37F6');</script>
+        <!-- End Google Tag Manager -->
+        <title>Celgene Myeloma Marketing Ecosystem</title>
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+        
+      <link href="assets/styles/style_main.css" rel="stylesheet" type="text/css" />
 
-    <title>Celgene Myeloma Marketing Ecosystem</title>
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-    
-  <link href="assets/styles/style_main.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body> 
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKS37F6"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
-</head>
-<body>
-    <!-- <div id="mynetwork"></div> -->
-<!--     <div id="frenchfry">
-        <div v-if="findItem">
-            Missing Item
-        </div>
-        <div v-else>
-            Found Item
-        </div>
-    </div>
-    <div id="example">
-      <h3>Original message: "{{ message }}"</h3>
-      <h3>Computed reversed message: "{{ reversedMessage }}"</h3>
-    </div> -->
-    <div id="app">
         <img src="assets/images/logo.png" title="Beacon Healthcare Communications">
         <h1>Celgene Myeloma Marketing Ecosystem</h1>
 
-        <transition-group name="list" tag="ul">
-            <li v-for="item in items" v-bind:key="item" class="list-item">
-                <div>
-                    <table width="100%">
-                        <tr>
-                            <td align="left"><img :src="item['fields']['Brand Logo'][0]['url']" alt="" v-if="item['fields']['Brand Logo']" class="brandthumb"></td>
-                            <td align="right"><img v-bind:src="getHCPIcon()" title="Healthcare Professional" v-if="checkAud_HCP(item)" class="aud-icon">
-                       <img v-bind:src="getPATIcon()" title="Patient" v-if="checkAud_Patient(item)" class="aud-icon"></td>
-                        </tr>
-                    </table>
-                    
-                    <h3>{{ item['fields']['Name'] }}</h3>
-                    <p class="status">
-                        <span class="itemlabel">Status:</span> <span v-if="checkStatus(item)" class="found_items">{{ item['fields']['Beacon Status'] }}</span>
-                        <span v-else class="missing_items">{{ item['fields']['Beacon Status'] }}</span>
-                    </p>
-                    
-                    <div class="imgbox"><img :src="item['fields']['Thumbnail'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Thumbnail']" width="150"></div>
-                    <p class="tactic"> {{ item['fields']['Promo Status'] }} {{ item['fields']['Tactic'] }}</p>
-<!--                          <img :src="item['fields']['Brand Logo'][0]['url']" alt="" v-if="checkAud_Patient(item)" class="aud-icon"> -->
-                    </p>
-                </div>
-            </li>
-        </transition-group>
+
+        <div id="app">
+            
+            <button v-on:click="say('what')">Say what</button>
+
+            <transition-group name="list" tag="ul">
+                <li v-for="item in items" v-bind:key="item" class="list-item">
+                    <div>
+                        <table width="100%">
+                            <tr>
+                                <!-- BRAND LOGO -->
+                                <td align="left"><img :src="item['fields']['Brand Logo'][0]['url']" alt="" v-if="item['fields']['Brand Logo']" class="brandthumb"></td>
+                                <!-- AUDIENCE -->
+                                <td align="right"><img v-bind:src="getHCPIcon()" title="Healthcare Professional" v-if="checkAud_HCP(item)" class="aud-icon">
+                            <img v-bind:src="getPATIcon()" title="Patient" v-if="checkAud_Patient(item)" class="aud-icon"></td>
+                            </tr>
+                        </table>
+                        <!-- PACT CODE -->
+                        <p class="pactcode"><span class="itemlabel">PACT:</span> {{ item['fields']['Celgene Tactic ID'] }}</p>
+                        <!--  ENABLE TO SHOW MISSING ASSETS FROM CELGENE
+                            <p class="status">
+                                <span class="itemlabel">Status:</span> <span v-if="checkStatus(item)" class="found_items"></span>
+                                <span v-else class="missing_items">{{ item['fields']['Beacon Status'] }}</span>
+                            </p>
+                        -->
+                        <!-- IMAGE -->
+                        <div class="imgbox"><img :src="item['fields']['Thumbnail'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Thumbnail']" width="150"></div>
+                        <!-- PROMO STATUS AND TACTIC TYPE, CONCATINATED FOR DISPLAY -->
+                        <p class="tactic"> {{ item['fields']['Promo Status'] }} {{ item['fields']['Tactic'] }}</p>
+                        <!-- ASSET NAME -->
+                        <h3>{{ item['fields']['Name'] }}</h3>
+                        <!-- BUTTON  -->
+                        <button v-on:click="popMe(item)">View Me</button>
+                        </p>
+                    </div>
+                </li>
+            </transition-group>
 
 
-    </div><!-- close app-->
-
-    <div id="myeloma_assets"></div>
-
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
-    <script type="text/javascript">
+        </div>
+        <!-- close app-->
 
 
-        var vm = new Vue({
-          el: '#frenchfry',
-          data: {
-            missingitem: true
-          },
-          computed: {
-            // a computed getter
-            // checkPresent: function () {
-            //   // `this` points to the vm instance
-                findItem : function(){
-                     missingitem = false;
-                    return this.missingitem
-                }
-            //   return this.missingitem
-            // }
-          }
-        })
 
-        var vm = new Vue({
-          el: '#example',
-          data: {
-            message: 'Hello'
-          },
-          computed: {
-            // a computed getter
-            reversedMessage: function () {
-              // `this` points to the vm instance
-              return this.message.split('').reverse().join('')
-            }
-          }
-        })
-
-        // var assetBucket=[];
-
-        var app = new Vue({
-            el: '#app',
-            data: {
-                items: []
-            },
-            mounted: function(){
-               this.loadItems(); 
-            },
-            methods: {
-                loadItems: function(){
-                    
-                    // Init variables
-                    var self = this
-                    var app_id = "appvjUANOYCIhhpIC";
-                    var app_key = "keyuf7sO87qug1SCZ";
-                    this.items = []
-                    axios.get(
-                        
-                        "https://api.airtable.com/v0/"+app_id+"/Assets?view=All%20Asset%20Grid",
-                        { 
-                            headers: { Authorization: "Bearer "+app_key } 
-                        }
-                    ).then(function(response){
-
-
-                        self.items = response.data.records;
-                        // assetBucket = self.items;
-                        
-
-
-                    }).catch(function(error){
-                        console.log(error)
-                    })
-                },
-                filterItems: function(items) {
-                    return items.filter(function(item) {
-                      return item.price > 10;
-                    })
-                },
-                checkStatus: function(item){
-                    var stus = item['fields']['Beacon Status'];
-                    if(stus.includes('Items All In')){
-                        return true;
-                    }
-                    else{return false;}
-                },
-                checkAud_HCP: function(item){
-                    var aud = "" + item['fields']['Audience'];
-                    if (aud){
-                        if(aud.includes('HCP')){
-                            return true;
-                        }else{return false;}
-                    }
-                    console.log(' aud is null ');
-                    return false;
-
-                },
-                checkAud_Patient: function(item){
-                    var aud = "" + item['fields']['Audience'];
-                    if (aud){
-                        if(aud.includes('Patient')){
-                            return true;
-                        }else{return false;}
-                    }
-                    console.log(' aud is null ');
-                    return false;
-                },
-                getHCPIcon: function(){
-                    return "http://www.lennytafro.com/beaconhc/celgene/assets/images/hcp.png";
-                },
-                getPATIcon: function(){
-                    return "http://www.lennytafro.com/beaconhc/celgene/assets/images/patient.png";
-                }
-            }
-        })
-
-        // console.log('assetBucket Length: ' + assetBucket.length);
-
-    </script>
-
-</body>
+        <script type="text/javascript" src="https://unpkg.com/vue"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="scripts/main.js"></script>
+    </body>
 </html>
