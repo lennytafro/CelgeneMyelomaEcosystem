@@ -16,75 +16,110 @@
       <link href="assets/styles/style_main.css" rel="stylesheet" type="text/css" />
 
     </head>
-    <body> 
+    <body>
+    
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKS37F6"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
 
         <div id="app">
+        <!-- open vue app  ESSENTIAL! DO NOT FUCK WIT-->
+            <div v-bind:class="{ scrollstopper: show }">
 
+                <div v-if="show" class="scrodal_container">
+                    <div v-for="item in holdItem" class="scrodal_content" v-bind:id="item['fields']['Celgene Tactic ID']" v-show="show">
 
-            <div v-if="show" class="scrodal_container">
-                <div v-for="item in holdItem" class="scrodal_content" v-bind:id="item['fields']['Celgene Tactic ID']" v-show="show">
-                    {{ getAssetContent(item) }}
-                <button @click="killScrotie">X</button>
-            </div>
-
-            </div>
-
-            
-            <img src="assets/images/logo.png" title="Beacon Healthcare Communications">
-            <h1>Lenny Myeloma Marketing Ecosystem</h1>
-
-            <button v-on:click="say('what')">Say what</button>
-
-
-
-
-            <transition-group name="list" tag="ul">
-                <li v-for="item in items" v-bind:key="item" class="list-item">
-                    <div>
-                        <table width="100%">
-                            <tr>
-                                <!-- BRAND LOGO -->
-                                <td align="left"><img :src="item['fields']['Brand Logo'][0]['url']" alt="" v-if="item['fields']['Brand Logo']" class="brandthumb"></td>
-                                <!-- AUDIENCE -->
-                                <td align="right"><img v-bind:src="getHCPIcon()" title="Healthcare Professional" v-if="checkAud_HCP(item)" class="aud-icon">
-                            <img v-bind:src="getPATIcon()" title="Patient" v-if="checkAud_Patient(item)" class="aud-icon"></td>
-                            </tr>
-                        </table>
-                        <!-- PACT CODE -->
-                        <p class="pactcode"><span class="itemlabel">PACT:</span> {{ item['fields']['Celgene Tactic ID'] }}</p>
-                        <!--  ENABLE TO SHOW MISSING ASSETS FROM CELGENE
-                            <p class="status">
-                                <span class="itemlabel">Status:</span> <span v-if="checkStatus(item)" class="found_items"></span>
-                                <span v-else class="missing_items">{{ item['fields']['Beacon Status'] }}</span>
-                            </p>
-                        -->
-                        <!-- IMAGE -->
-                        <div class="imgbox"><img :src="item['fields']['Thumbnail'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Thumbnail']" width="150"></div>
-                        <!-- PROMO STATUS AND TACTIC TYPE, CONCATINATED FOR DISPLAY -->
-                        <p class="tactic"> {{ item['fields']['Promo Status'] }} {{ item['fields']['Tactic'] }}</p>
-                        <!-- ASSET NAME -->
-                        <h3>{{ item['fields']['Name'] }}</h3>
-                        <!-- BUTTON  -->
-                        <button v-on:click="popScrotie(item)">View Me</button>
-                        </p>
+                        <!-- SCRODAL CONTENT TEMPLATE -->
+                        <button @click="killScrotie">X</button>
+                        <div class="scrodal_contentwrap">
+                            <table width="100%">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left"><img :src="getAssetBrandLogo(item)" alt="" v-if="item['fields']['Brand Logo']" class="brand_img"></td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><img v-bind:src="getHCPIcon()" title="Healthcare Professional" v-if="checkAud_HCP(item)" class="aud_img">
+                                <img v-bind:src="getPATIcon()" title="Patient" v-if="checkAud_Patient(item)" class="aud_img"></td>
+                                </tr>
+                            </table>
+                            <h1>{{ getAssetName(item) }}</h1>
+                            <h2>{{ getAssetPACTID(item) }}</h2>
+                            <h3>{{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</h3>
+                            <table width="100%" border="0" class="asset_detail_table">
+                                <tr>
+                                    <td colspan="1" class="labelcell"><p>Subject Line: </p></td><td colspan="3"> <p> {{ getAssetSubjectLine(item) }}</p></td>
+                                </tr>
+                               <tr>
+                                    <td class="labelcell"><p>Market: </p></td><td> <p> {{ getAssetMarket(item) }}</p></td>
+                                    <td class="labelcell"><p>Language: </p></td><td> <p> {{ getAssetLanguage(item) }}</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="labelcell"><p>Audience: </p></td><td> <p> {{ getAssetAudience(item) }}</p></td>
+                                    <td class="labelcell"><p>MLR Status: </p></td><td> <p> {{ getAssetMLR(item) }}</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="labelcell"><p>Performance: </p></td><td> <p> {{ getAssetPerformance(item) }}</p></td>
+                                    <td class="labelcell"><p>% of Goal: </p></td><td> <p> {{ getAssetGoalPercent(item) }}%</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="labelcell"><p>BRD Doc: </p></td><td>
+                                        <p v-if="item['fields']['BRD']"><a v-bind:href="getAssetBRDLink(item)"><img v-bind:src="getBRDDocIcon(item)" v-bind:title="getBRDDocDetails(item)" class="doc_img">{{ getAssetBRDType(item) }}</p>
+                                    </td>
+                                    <td class="labelcell"><p>Link: </p></td><td> <p><a target="_blank" v-if="item['fields']['Web Address']" v-bind:href="getAssetWebAddress(item)">Visit Site</a></p></td>
+                                </tr>
+                            </table>
+                            <br v-if="item['fields']['Thumbnail']">
+                            <span v-if="item['fields']['Thumbnail']">Creative:</span><br v-if="item['fields']['Thumbnail']">
+                            <img :src="getAssetImage(item)" alt="" v-if="item['fields']['Thumbnail']" class="assetimage">
+                        </div>
+                        <!-- END SCRODAL CONTENT TEMPLATE -->
                     </div>
-                </li>
-            </transition-group>
+                </div>
+                <!-- DEFAULT PAGE VIEW TEMPLATE -->
+                <img src="assets/images/logo.png" title="Beacon Healthcare Communications">
+                <h1>Celgene Myeloma Marketing Ecosystem</h1>
 
+                <transition-group name="list" tag="ul">
+                    <li v-for="item in items" v-bind:key="item" class="list-item" v-on:click="popScrotie(item)">
+                        <div>
+                            <table width="100%">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left"><img :src="getAssetBrandLogo(item)" alt="" v-if="item['fields']['Brand Logo']" class="brandthumb"></td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><img v-bind:src="getHCPIcon()" title="Healthcare Professional" v-if="checkAud_HCP(item)" class="aud-icon">
+                                <img v-bind:src="getPATIcon()" title="Patient" v-if="checkAud_Patient(item)" class="aud-icon"></td>
+                                </tr>
+                            </table>
+                            <!-- PACT CODE -->
+                            <p class="pactcode"><span class="itemlabel">PACT:</span> {{ getAssetPACTID(item) }}</p>
+                            <!--  ENABLE TO SHOW MISSING ASSETS FROM CELGENE
+                                <p class="status">
+                                    <span class="itemlabel">Status:</span> <span v-if="checkStatus(item)" class="found_items"></span>
+                                    <span v-else class="missing_items">{{ item['fields']['Beacon Status'] }}</span>
+                                </p>
+                            -->
+                            <!-- IMAGE -->
+                            <div class="imgbox"><img :src="getAssetImage(item)" alt="" v-if="item['fields']['Thumbnail']"></div>
+                            <!-- PROMO STATUS AND TACTIC TYPE, CONCATINATED FOR DISPLAY -->
+                            <p class="tactic"> {{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</p>
+                            <!-- ASSET NAME -->
+                            <h3>{{ getAssetName(item) }}</h3>
+                            </p>
+                        </div>
+                    </li>
+                </transition-group>
+                <!-- END DEFAULT PAGE VIEW TEMPLATE -->
 
-
-
+            </div>
+            <!-- close scrollstopper-->
         </div>
-        <!-- close app-->
+        <!-- close vue app  ESSENTIAL!-->
 
 
         <script type="text/javascript" src="https://unpkg.com/vue"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
-         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="scripts/main.js"></script>
     </body>
 </html>

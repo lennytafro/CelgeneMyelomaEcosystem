@@ -6,7 +6,11 @@ body, ul, li{
 
 }
 body{
-  background-color: #DDDDDD;
+/*  background-color: #DDDDDD;*/
+  background: linear-gradient( white,#DDDDDD );
+}
+.scrollstopper{
+  overflow: hidden;
 }
 
 h1 {
@@ -14,7 +18,7 @@ h1 {
 }
 
 /*stuff for the canvas visjs*/
-
+/*
 #mynetwork {
   width: 90%;
   height: 90%;
@@ -35,7 +39,7 @@ p {
   width: 35%;
   margin-left: 40px;
   background-color: #dddddd;
-}
+}*/
 
 
 .fade-enter-active, .fade-leave-active {
@@ -141,12 +145,16 @@ p {
 
 .imgbox{
 	height: 120px;
-	width: 150px;
+	width: 180px;
 	overflow: hidden;
 	margin: 0px;
 	display: block;
 	text-align: center;
 	background: linear-gradient(#044B92, white);
+}
+
+.imgbox img{
+  width: 180px;
 }
 
 .pactcode{
@@ -159,16 +167,37 @@ p {
 .missing_items{
 	color: red;
 }
-.itemlabel{color: #CCCCCC;}
+.itemlabel{
+  color: #CCCCCC;
+}
+.labelcell{
+  color: #CCCCCC;
+  width: 90px;
+
+}
+
 .brandthumb{
 	height: 40px;
 	max-height: 40px;
 	max-width:  100px;
 }
+.brand_img{
+  height: 80px;
+  max-height: 80px;
+  max-width:  100%;
+}
+
 .aud-icon{
   height: 18px;
 }
+.aud_img{
+  height: 48px;
+}
 
+
+.doc_img{
+  height: 32px;
+}
 
 /*animation for the cards*/
 
@@ -181,48 +210,78 @@ p {
 }
 
 
-
-
 /*. support for the scrodals */
 
 .scrodal_container{
-
-/*  display: block;
-  visibility: hidden;*/
-  position: relative;
-  bottom: 0%;
+  /*. visibility handled by vuejs  */
+  position: fixed;
+  top: 0%;
   left: 0%;
+  right: 0%;
+  bottom: 0%;
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: #000;
+  background-color:rgba(0, 0, 0, 0.5);
 
 }
 
 .scrodal_content{
-/*  display: block;
-  visibility: hidden;*/
-  position: relative;
-  top: 10%;
-  left: 10%;
+
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
   height: 80%;
-  width: 60%;
-  overflow: scroll;
-  background: #fff;
+  width: 77%;
+  overflow-y: scroll;
+  background: linear-gradient( white,#eeeeee );
   color: #777;
+  -webkit-box-shadow: 15px 21px 33px 12px rgba(46,46,46,0.51);
+  -moz-box-shadow: 15px 21px 33px 12px rgba(46,46,46,0.51);
+  box-shadow: 15px 21px 33px 12px rgba(46,46,46,0.51);
+  padding: 12px 12px;
+  margin: auto;
+
+}
+
+.scrodal_contentwrap{
+  margin: auto;
+  width: 70%;
+}
+
+.scrodal_content .scrodal_contentwrap h1{
+  margin: 8px 0px 4px 0px;
+
+}
+.scrodal_content .scrodal_contentwrap h2, .scrodal_content .scrodal_contentwrap h3{
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .scrodal_content button {
     position: relative;
-    width: 20px;
-    top: 30px;
+    width: 26px;
+    top: 0px;
     float: right;
-    margin-right: 30px;
+    margin-right: 0px;
+    font-family: Helvetica, Arial,  sans-serif;
+    font-weight: bold;
 }
 
 
+.scrodal_content .assetimage{
+  max-width:100%;
+}
 
+.scrodal_content table tr td{
+  padding: 2px;
+}
 
+.scrodal_content table tr td p{
+  margin: 0px;
+}
 
 
 
