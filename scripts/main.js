@@ -1,4 +1,8 @@
 
+Vue.component('child', {
+  props: ['text'],
+  template: `<div>{{ text }}<div>`
+});
 
 var app = new Vue({
     el: '#app',
@@ -57,14 +61,23 @@ var app = new Vue({
           return app.decimalAdjust('round', value, exp);
         },
         getAssetThumbnail: function(item){
-            var strHTML = "";
-            strHTML += item['fields']['Thumbnail'][0]['thumbnails']['small']['url'];
+            var strHTML = "lennyh";
+            if (item['fields']['Thumbnail']){
+                strHTML += item['fields']['Thumbnail'][0]['thumbnails']['small']['url'];
+            }  
             return strHTML;
         },
         getAssetImage: function(item){
+
             var strHTML = "";
-            strHTML += item['fields']['Thumbnail'][0]['thumbnails']['large']['url'];
+            if (item['fields']['Thumbnail']){
+                if (item['fields']['Thumbnail'][0]['thumbnails']){
+                    strHTML += item['fields']['Thumbnail'][0]['thumbnails']['large']['url'];
+                }  
+
+            }  
             return strHTML;
+
         },
         getAssetPromoStatus: function(item){
             var strHTML = "";
@@ -110,8 +123,11 @@ var app = new Vue({
         },
         getAssetBrandLogo: function(item){
             var strHTML = "";
-            strHTML += item['fields']['Brand Logo'][0]['url'];
+            
 
+            if (item['fields']['Brand Logo']){
+                strHTML += item['fields']['Brand Logo'][0]['url'];
+            }  
             return strHTML;
         },
         getAssetFromLine: function(item){
