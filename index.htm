@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
         
       <link href="assets/styles/style_main.css" rel="stylesheet" type="text/css" />
+      <link href="assets/styles/style_print.css" rel="stylesheet" media="print">
 
     </head>
     <body>
@@ -78,11 +79,10 @@
                 <!-- DEFAULT PAGE VIEW TEMPLATE -->
                 <img src="assets/images/logo.png" title="Beacon Healthcare Communications">
                 <h1>Celgene Myeloma Marketing Ecosystem</h1>
-
                 <child :text="message"></child>
-
-                <input v-model="number">
-
+                <p class="desc">this window is  size</p>
+                <input v-model="number" />
+                <transition-group name="list" tag="ul">
                     <li v-for="item in items" v-bind:key="item" class="list-item" v-on:click="popScrotie(item)">
                         <div>
                             <table width="100%">

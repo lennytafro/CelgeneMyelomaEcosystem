@@ -1,0 +1,17 @@
+/* style for printing  celgene myeloma */
+@media print {
+/* print style sheets go here */
+
+  body, ul, li{
+
+  font-family: 'Barlow Condensed', 
+               'Helvetica Condensed',
+               'Arial Condensed', 
+                Helvetica, 
+                Arial,  
+                sans-serif;
+  }
+
+}
+
+

@@ -234,7 +234,7 @@ p {
   right: 5%;
   bottom: 5%;
   height: 80%;
-  width: 77%;
+  width: 50%;
   overflow-y: scroll;
   background: linear-gradient( white,#eeeeee );
   color: #777;
@@ -293,5 +293,36 @@ p {
 
 
 /*. end support for the scrodals */
+
+  /*. smaller than iPad Landscape */
+  @media (max-width: 1000px) {
+    .scrodal_content{
+      width: 75%;
+    }
+
+    .desc:after {
+      content:" In fact, it's less than 1000px wide.";
+    }
+  }
+
+  /*. smaller than iPad Landscape */
+  @media (max-width: 400px) {
+    .scrodal_content{
+      width: 95%;
+    }
+
+    .desc:after {
+      content:" In fact, it's less than 400px wide.";
+    }
+  }
+
+  @media(orientation: portrait){
+
+  }
+  @media(orientation: landscape){
+
+  }
+
+
 
 
