@@ -8,6 +8,7 @@ body, ul, li{
 body{
 /*  background-color: #DDDDDD;*/
   background: linear-gradient( white,#DDDDDD );
+/*  background: no-repeat 0 0 url("../images/background.png");*/
 }
 .scrollstopper{
   overflow: hidden;
@@ -102,10 +103,16 @@ p {
 /*styles for each card*/
 /*styles for each card*/
 
+.card_list{
+  position: relative;
+}
+
 .list-item  h3{
 	margin-top: 5px;
 	font-size: 1.4em;
 }
+
+
 .list-item  p{
 	font-family: 'Barlow Condensed', 'Helvetica Condensed', 'Arial Condensed', Helvetica, Arial,  sans-serif;
 	margin-top: 4px;
@@ -141,6 +148,9 @@ p {
   -moz-box-shadow: 6px 6px 34px -5px rgba(119,119,119,0.62);
   box-shadow: 6px 6px 34px -5px rgba(119,119,119,0.62);
   z-index: 10;
+
+
+
 }
 
 .imgbox{
@@ -206,11 +216,13 @@ p {
 }
 .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateX(30px);
 }
 
 
-/*. support for the scrodals */
+  /*. ################# */
+  /*. SCRODAL  STYLES */
+  /*. ################# */
 
 .scrodal_container{
   /*. visibility handled by vuejs  */
@@ -223,6 +235,7 @@ p {
   width: 100%;
   overflow: hidden;
   background-color:rgba(0, 0, 0, 0.5);
+  z-index: 50;
 
 }
 
@@ -244,6 +257,10 @@ p {
   padding: 12px 12px;
   margin: auto;
 
+}
+
+#app button{
+  margin-left: 20px;
 }
 
 .scrodal_contentwrap{
@@ -285,14 +302,13 @@ p {
 
 
 
-
-
-
-
-
-
-
 /*. end support for the scrodals */
+
+
+
+  /*. ################# */
+  /*. RESPONSIVE STYLES */
+  /*. ################# */
 
   /*. smaller than iPad Landscape */
   @media (max-width: 1000px) {
@@ -319,9 +335,127 @@ p {
   @media(orientation: portrait){
 
   }
-  @media(orientation: landscape){
+  @media(min-width: 2000px){
+    body{
+      background: no-repeat 0 0 url("../images/background.png");
+    }
+    .list-item {
+      position: absolute;
+    }
 
-  }
+    #US-REV170059{    top: 590px;
+    left: 2130px;}
+    #US-POM160051{top: 610px;
+    left: 2160px;}
+    #US-REV150126(1){top: 420px;left: 300px;}
+    #US-MBM170056{    top: 915px;
+    left: 2187px;}
+    #US-REV170053{    top: 806px;
+    left: 1840px;}
+    #US-POM160033{    top: 790px;
+    left: 1910px;}
+    #US-REV170016(1){top: 250px;left: 700px;}
+    #US-CELG170119{    top: 40px;
+    left: 2260px;}
+    #US-REV150112-2{top: 270px;left: 800px;}
+    #US-REV150114-2{top: 250px;left: 900px;}
+    #US-REV170060{top: 120px;left: 250px;}
+    #US-REV160021-1{top: 820px;left: 350px;}
+    #US-REV160119-1{top: 240px;left: 450px;}
+    #US-REV160051-1{top: 220px;left: 550px;}
+    #US-REV170095{top: 420px;left: 650px;}
+    #US-REV170061{top: 50px;left: 750px;}
+    #US-REV150115-1{top: 270px;left: 850px;}
+    #US-REV170016-1{
+          top: 730px;
+    left: 470px;
+    }
+    #US-CELG160223-2{
+          top: -140px;
+    left: 280px;
+    }
+    #US-REV150126-1{    top: 590px;
+    left: 1890px;}
+    #US-REV160111-1{top: 720px;left: 260px;}
+    #US-REV160429{top: 290px;left: 280px;}
+    #US-CELG170221{top: 280px;left: 240px;}
+    #US-CELG170082{top: 90px;left: 230px;}
+    #US-CELG170083{top: 80px;left: 400px;}
+    #US-CELG170120{top: 70px;left: 300px;}
+    #US-CELG170245{top: 60px;left: 200px;}
+    #US-POM170001{top: 130px;left: 100px;}
+    #US-REV170008{top: 141px;left: 900px;}
+    #US-REV170037{top: 240px;left: 800px;}
+    #US-REV170047-1{top: 520px;left: 730px;}
+    #US-REV170062{top: 203px;left: 620px;}
+    #US-REV150127-2{top: 260px;left: 500px;}
+    #US-REV160052-1{top: 240px;left: 240px;}
+    #US-POM170039{    top: 610px;
+    left: 2180px;}
+    #REMS-GEN12234{      top: 1160px;
+      left: 1820px;}
+    #REMS-GEN16939{      top: 1150px;
+      left: 1830px;}
+    #REMS-GEN16941{      top: 1140px;
+      left: 1840px;}
+    #REMS-GEN16940{      top: 1130px;
+      left: 1850px;}
+    #REMS-GEN15711{    
+      top: 1160px;
+      left: 280px;}
+    #REMS-GEN16854{    
+      top: 1120px;
+      left: 1870px;
+    }
+    #US-CELG160219e{
+        top: 140px;
+        left: 1065px;
+      }
+
+      #US-POM160032-1a{
+        top: 1130px;
+      left: 1850px;
+      }
+    #NO-PACT-CODE-01{top: 270px;left: 800px;}
+    #NO-PACT-CODE-02{        top: 20px;
+    left: 60px;}
+    #NO-PACT-CODE-03{top: -160px;
+    left: 1060px;}
+    #NO-PACT-CODE-04{    top: 270px;
+    left: 1600px;}
+    #NO-PACT-CODE-05{    top: -140px;
+    left: 1610px;}
+    #NO-PACT-CODE-06{    top: -40px;
+    left: 1800;}
+    #NO-PACT-CODE-07{    top: 290px;
+    left: 1800px;}
+    #NO-PACT-CODE-08{    top: -120px;
+    left: 2050px;}
+    #NO-PACT-CODE-09{    top: 180px;
+    left: 2040px;}
+    #NO-PACT-CODE-10{    top: 640px;
+    left: 130px;}
+    #NO-PACT-CODE-11{    top: 1130px;
+    left: 2080px;}
+    #NO-PACT-CODE-12{    top: 1110px;
+    left: 1520px;}
+    #NO-PACT-CODE-13{    top: 1090px;
+    left: 1550px;}
+    #NO-PACT-CODE-14{top: 1060px;
+    left: 1590px;}
+    #NO-PACT-CODE-15{    top: 1050px;
+    left: 1230px;}
+    #NO-PACT-CODE-16{top: 1300px;
+    left: 1041px;}
+    #NO-PACT-CODE-17{top: 1340px;
+    left: 1070px;}
+    #NO-PACT-CODE-18{    top: 1370px;
+    left: 1100px;}
+    #NO-PACT-CODE-19{    top: 720px;
+    left: 1520px;}
+    #NO-PACT-CODE-20{top: 240px;
+    left: 1390px;}
+
 
 
 

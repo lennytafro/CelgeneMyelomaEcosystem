@@ -26,10 +26,13 @@
 
         <div id="app">
         <!-- open vue app  ESSENTIAL! DO NOT FUCK WIT-->
-            <div v-bind:class="{ scrollstopper: show }">
 
+
+            <div v-bind:class="{ scrollstopper: show }">.  <!-- this um did not work -->
+
+                <!-- SCRODAL CONTAINER  -->
                 <div v-if="show" class="scrodal_container">
-                    <div v-for="item in holdItem" class="scrodal_content" v-bind:id="item['fields']['Celgene Tactic ID']" v-show="show">
+                    <div v-for="item in holdItem" class="scrodal_content" v-show="show">
 
                         <!-- SCRODAL CONTENT TEMPLATE -->
                         <button @click="killScrotie">X</button>
@@ -74,16 +77,24 @@
                             <img :src="getAssetImage(item)" alt="" v-if="item['fields']['Thumbnail']" class="assetimage">
                         </div>
                         <!-- END SCRODAL CONTENT TEMPLATE -->
+
+
                     </div>
                 </div>
+                <!-- END SCRODAL CONTAINER  -->
+
+
                 <!-- DEFAULT PAGE VIEW TEMPLATE -->
                 <img src="assets/images/logo.png" title="Beacon Healthcare Communications">
                 <h1>Celgene Myeloma Marketing Ecosystem</h1>
-                <child :text="message"></child>
+<!--                 <child :text="message"></child>
                 <p class="desc">this window is  size</p>
-                <input v-model="number" />
-                <transition-group name="list" tag="ul">
-                    <li v-for="item in items" v-bind:key="item" class="list-item" v-on:click="popScrotie(item)">
+                <input v-model="number" /> -->
+                <button v-on:click="loadItemsNoEmail()">No Email</button>
+                <button v-on:click="loadItemsOnlyEmail()">Only Email</button>
+                <button v-on:click="loadItems()">Default</button>
+                <transition-group name="list" tag="ul" class="card_list">
+                    <li v-for="item in items" v-bind:key="item" class="list-item"  v-bind:id="item['fields']['Celgene Tactic ID']" v-on:click="popScrotie(item)" >
                         <div>
                             <table width="100%">
                                 <tr>

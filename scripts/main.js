@@ -35,6 +35,46 @@ var app = new Vue({
                 console.log(error)
             })
         },
+        loadItemsNoEmail: function(){
+            
+            // Init variables
+            var self = this
+            var app_id = "appvjUANOYCIhhpIC";
+            var app_key = "keyuf7sO87qug1SCZ";
+            this.items = []
+            axios.get(  
+                "https://api.airtable.com/v0/"+app_id+"/Assets?view=NoEmail",
+                { 
+                    headers: { Authorization: "Bearer "+app_key } 
+                }
+            ).then(function(response){
+
+                self.items = response.data.records;
+
+            }).catch(function(error){
+                console.log(error)
+            })
+        },
+        loadItemsOnlyEmail: function(){
+            
+            // Init variables
+            var self = this
+            var app_id = "appvjUANOYCIhhpIC";
+            var app_key = "keyuf7sO87qug1SCZ";
+            this.items = []
+            axios.get(  
+                "https://api.airtable.com/v0/"+app_id+"/Assets?view=OnlyEmail",
+                { 
+                    headers: { Authorization: "Bearer "+app_key } 
+                }
+            ).then(function(response){
+
+                self.items = response.data.records;
+
+            }).catch(function(error){
+                console.log(error)
+            })
+        },
         decimalAdjust:  function (type, value, exp) {
             // If the exp is undefined or zero...
             if (typeof exp === 'undefined' || +exp === 0) {
