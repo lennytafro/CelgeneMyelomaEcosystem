@@ -4,6 +4,20 @@ Vue.component('child', {
   template: `<div>{{ text }}<div>`
 });
 
+VueScrollTo.setDefaults({
+    // container: ".scrodal_container",
+    container: ".scrodal_container",
+    duration: 500,
+    easing: "ease",
+    offset: 0,
+    cancelable: true,
+    onDone: false,
+    onCancel: false,
+    x: false,
+    y: true
+})
+
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -12,10 +26,12 @@ var app = new Vue({
         show: false
     },
     mounted: function(){
-       this.loadItems(); 
+       this.loadItems('Assets','All%20Asset%20Grid'); 
     },
     methods: {
-        loadItems: function(){
+
+
+        loadItems: function(table, view){
             
             // Init variables
             var self = this
@@ -23,7 +39,7 @@ var app = new Vue({
             var app_key = "keyuf7sO87qug1SCZ";
             this.items = []
             axios.get(  
-                "https://api.airtable.com/v0/"+app_id+"/Assets?view=All%20Asset%20Grid",
+                "https://api.airtable.com/v0/"+app_id+"/" + table + "?view=" + view,
                 { 
                     headers: { Authorization: "Bearer "+app_key } 
                 }
@@ -35,45 +51,83 @@ var app = new Vue({
                 console.log(error)
             })
         },
-        loadItemsNoEmail: function(){
+        loadItemsChannelNoEmail: function(){
             
             // Init variables
-            var self = this
-            var app_id = "appvjUANOYCIhhpIC";
-            var app_key = "keyuf7sO87qug1SCZ";
-            this.items = []
-            axios.get(  
-                "https://api.airtable.com/v0/"+app_id+"/Assets?view=NoEmail",
-                { 
-                    headers: { Authorization: "Bearer "+app_key } 
-                }
-            ).then(function(response){
+            var table = "Assets";
+            var view = "NoEmail";
+            this.loadItems(table, view)
 
-                self.items = response.data.records;
-
-            }).catch(function(error){
-                console.log(error)
-            })
         },
-        loadItemsOnlyEmail: function(){
+        loadItemsChannelOnlyEmail: function(){
             
             // Init variables
-            var self = this
-            var app_id = "appvjUANOYCIhhpIC";
-            var app_key = "keyuf7sO87qug1SCZ";
-            this.items = []
-            axios.get(  
-                "https://api.airtable.com/v0/"+app_id+"/Assets?view=OnlyEmail",
-                { 
-                    headers: { Authorization: "Bearer "+app_key } 
-                }
-            ).then(function(response){
-
-                self.items = response.data.records;
-
-            }).catch(function(error){
-                console.log(error)
-            })
+            var table = "Assets";
+            var view = "OnlyEmail";
+            this.loadItems(table, view)
+        },
+        loadItemsChannelOnlyDisplay: function(){
+            
+            // Init variables
+            var table = "Assets";
+            var view = "OnlyDisplay";
+            this.loadItems(table, view)
+        },
+        loadItemsChannelOnlyWeb: function(){
+            
+            // Init variables
+            var table = "Assets";
+            var view = "OnlyWeb";
+            this.loadItems(table, view)
+        },
+        loadItemsBrandOnlyPOM: function(){
+            
+            // Init variables
+            var table = "Assets";
+            var view = "OnlyPOM";
+            this.loadItems(table, view)
+        },
+        loadItemsBrandOnlyCEL: function(){
+            
+            // Init variables
+            var table = "Assets";
+            var view = "OnlyCEL";
+            this.loadItems(table, view)
+        },
+        loadItemsBrandOnlyREV: function(){
+            
+            // Init variables
+            var table = "Assets";
+            var view = "OnlyREV";
+            this.loadItems(table, view)
+        },
+        loadItemsPromoBrandedOnly: function(){
+            
+            // Init variables
+            var table = "Assets";
+            var view = "BrandedOnly";
+            this.loadItems(table, view)
+        },
+        loadItemsPromoUnbrandedOnly: function(){
+            
+            // Init variables
+            var table = "Assets";
+            var view = "UnbrandedOnly";
+            this.loadItems(table, view)
+        },
+        loadItemsAudOnlyPatient: function(){
+            
+            // Init variables
+            var table = "Assets";
+            var view = "OnlyPatient";
+            this.loadItems(table, view)
+        },
+        loadItemsAudOnlyHCP: function(){
+            
+            // Init variables
+            var table = "Assets";
+            var view = "OnlyHCP";
+            this.loadItems(table, view)
         },
         decimalAdjust:  function (type, value, exp) {
             // If the exp is undefined or zero...

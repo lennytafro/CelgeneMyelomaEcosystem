@@ -90,9 +90,29 @@
 <!--                 <child :text="message"></child>
                 <p class="desc">this window is  size</p>
                 <input v-model="number" /> -->
-                <button v-on:click="loadItemsNoEmail()">No Email</button>
-                <button v-on:click="loadItemsOnlyEmail()">Only Email</button>
-                <button v-on:click="loadItems()">Default</button>
+                <section class="button_group">
+                    <button v-on:click="loadItemsChannelNoEmail()">No Email</button>
+
+                    <button v-on:click="loadItemsChannelOnlyEmail()">Only Email</button>
+                    <button v-on:click="loadItemsChannelOnlyDisplay()">Only Banners</button>
+                    <button v-on:click="loadItemsChannelOnlyWeb()">Only Web</button>
+
+                    <button v-on:click="loadItemsBrandOnlyPOM()">Only Pomalyst</button>
+                    <button v-on:click="loadItemsBrandOnlyCEL()">Only Celgene</button>
+                    <button v-on:click="loadItemsBrandOnlyREV()">Only Revlamid</button>
+
+                    <button v-on:click="loadItemsBrandOnlyPOM()">Only Branded</button>
+                    <button v-on:click="loadItemsBrandOnlyCEL()">Only Unbranded</button>
+
+                    <button v-on:click="loadItemsBrandOnlyREV()">Only Patient</button>
+                    <button v-on:click="loadItemsBrandOnlyREV()">Only HCP</button>
+
+                    <button v-on:click="loadItems('Assets','All%20Asset%20Grid')">Show All</button>
+                </section>
+
+
+
+
                 <transition-group name="list" tag="ul" class="card_list">
                     <li v-for="item in items" v-bind:key="item" class="list-item"  v-bind:id="item['fields']['Celgene Tactic ID']" v-on:click="popScrotie(item)" >
                         <div>
@@ -134,6 +154,7 @@
         <script type="text/javascript" src="https://unpkg.com/vue"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://unpkg.com/vue-scrollto"></script>
         <script type="text/javascript" src="scripts/main.js"></script>
     </body>
 </html>

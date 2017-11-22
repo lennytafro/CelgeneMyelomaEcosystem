@@ -21,6 +21,21 @@ h1 {
   margin-left: 1.1em;
 }
 
+.button_group{
+  float: left;
+  display: block;
+  width: 40%;
+  border: 1px solid #777;
+  position: absolute;
+  top: 5px;
+  left: 500px;
+  z-index: 100;
+}
+.button_group button{
+  display: block;
+  float: left;
+}
+
 /*stuff for the canvas visjs*/
 /*
 #mynetwork {
