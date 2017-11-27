@@ -363,6 +363,83 @@ var app = new Vue({
         getPATIcon: function(){
             return "http://www.lennytafro.com/beaconhc/celgene/assets/images/patient.png";
         },
+
+        checkPerf01_RED: function(item){
+            var perf = "" + item['fields']['Performance'];
+            if (perf){
+                if(perf.includes('Disappointing')){
+                    return true;
+                }else{return false;}
+            }
+            console.log(' perf is null ');
+            return false;
+
+        },
+        checkPerf02_ORANGE: function(item){
+            var perf = "" + item['fields']['Performance'];
+            if (perf){
+                if(perf.includes('Under')){
+                    return true;
+                }else{return false;}
+            }
+            console.log(' perf is null ');
+            return false;
+
+        },
+        checkPerf03_NEUTRAL: function(item){
+            var perf = "" + item['fields']['Performance'];
+            if (perf){
+                if(perf.includes('At')){
+                    return true;
+                }else{return false;}
+            }
+            console.log(' perf is null ');
+            return false;
+
+        },
+        checkPerf04_CHARTREUSE: function(item){
+            var perf = "" + item['fields']['Performance'];
+            if (perf){
+                if(perf.includes('Above')){
+                    return true;
+                }else{return false;}
+            }
+            console.log(' perf is null ');
+            return false;
+
+        },
+        checkPerf05_GREEN: function(item){
+            var perf = "" + item['fields']['Performance'];
+            if (perf){
+                if(perf.includes('Exceeds')){
+                    return true;
+                }else{return false;}
+            }
+            console.log(' perf is null ');
+            return false;
+
+        },
+
+
+        getPerf00Icon: function(){
+            return "http://www.lennytafro.com/beaconhc/celgene/assets/images/level_00_grey.png";
+        },
+        getPerf01Icon: function(){
+            return "http://www.lennytafro.com/beaconhc/celgene/assets/images/level_01_red.png";
+        },
+        getPerf02Icon: function(){
+            return "http://www.lennytafro.com/beaconhc/celgene/assets/images/level_02_orange.png";
+        },
+        getPerf03Icon: function(){
+            return "http://www.lennytafro.com/beaconhc/celgene/assets/images/level_03_yellow.png";
+        },
+        getPerf04Icon: function(){
+            return "http://www.lennytafro.com/beaconhc/celgene/assets/images/level_04_chartreuse.png";
+        },
+        getPerf05Icon: function(){
+            return "http://www.lennytafro.com/beaconhc/celgene/assets/images/level_05_green.png";
+        },
+
         say: function (message) {
           alert(message)
         },

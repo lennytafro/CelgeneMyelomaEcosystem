@@ -126,11 +126,8 @@ p {
 }
 
 .list-item  h3{
-    margin-top: 5px;
-    font-size: 1.4em;
-    max-height: 42px;
-    overflow: hidden;
-    min-height: 42px;
+	margin-top: 5px;
+	font-size: 1.4em;
 }
 
 
@@ -225,13 +222,6 @@ p {
   height: 48px;
 }
 
-
-.perf-icon{
-  height: 20px;
-}
-.perf-img{
-  height: 48px;
-}
 
 .doc_img{
   height: 32px;
@@ -363,12 +353,6 @@ p {
   @media(orientation: portrait){
 
   }
-
-
-  /*. ################# */
-  /*. POSITIOON STYLES FOR EACH CARD */
-  /*. ################# */
-
   @media(min-width: 2000px){
     body{
       background: no-repeat 0 0 url("../images/background.png");
@@ -377,98 +361,259 @@ p {
       position: absolute;
     }
 
-    #US-REV150114-2,#US-REV170059{top:620px;left:1950px}
-    #US-POM160051{top:610px;left:2160px}
-    #US-REV150112-2,#US-REV150126(1){top:620px;left:1940px}
-    #US-REV170053{top:806px;left:1830px}
-    #US-POM160033{top:790px;left:1910px}
-    #US-REV170016(1),#US-REV170095{top:620px;left:1920px}
-    #US-REV170060{top:620px;left:1960px}
-    #US-REV160021-1{top:620px;left:1970px}
-    #US-REV160119-1{top:620px;left:1980px}
-    #US-REV160051-1{top:620px;left:1990px}
-    #US-REV170061{top:750px;left:1920px}
-    #US-REV150115-1{top:750px;left:1930px}
-    #US-REV150126-1{top:590px;left:1890px}
-    #US-REV160111-1{top:750px;left:1960px}
-    #US-REV160429{top:750px;left:1980px}
-    #US-REV170016-1{top:730px;left:470px}
-    #US-REV170081{top:780px;left:430px}
-    #US-REV170096{top:750px;left:1990px}
-    #US-REV170080{top:775px;left:90px}
-    #US-REV140005-2{top:1080px;left:1490px}
-    #US-REV170147{top:750px;left:1840px}
-    #US-REV170147a{top:750px;left:1940px}
-    #US-REV170008{top:750px;left:1900px}
-    #US-REV170037{top:690px;left:300px}
-    #US-REV170047-1{top:747px;left:393px}
-    #US-REV170062{top:730px;left:320px}
-    #US-REV150127-2{top:750px;left:1500px}
-    #US-REV160052-1{top:750px;left:1240px}
-    #US-REV170080a{top:750px;left:350px}
-    #US-POM170001{top:930px;left:400px}
-    #US-CELG170119{top:40px;left:2260px}
-    #US-CELG160223-2{top: -110px;   left: 540px;}
-    #US-CELG140129-1{top: 60px left: 750px;}
-    #US-CELG170196{top: 110px;left: 1500px;}
-    #US-CELG170005{top:1051px;left:1310px}
-    #US-CELG170082{top:1051px;left:1320px}
-    #US-CELG170083{top:1051px;left:1330px}
-    #US-CELG170120{top:1051px;left:1340px}
-    #US-CELG170245{top:1051px;left:1350px}
-    #US-CELG170006-2{top:1051px;left:1360px}
-    #US-CELG170007-2{top:1051px;left:1370px}
-    #US-CELG150127-2{top:1051px;left:1380px}
-    #US-CELG140096h-1{top:1051px;left:1390px}
-    #US-CELG140096f-1{top:1051px;left:1400px}
-    #US-CELG150194a-1{top:1051px;left:1410px}
-    #US-CELG170091{top:1051px;left:1420px}
-    #US-CELG150048-2{top:1051px;left:1430px}
-    #US-CELG140256-2{top:1051px;left:1440px}
-    #NO-PACT-CODE-08{top:-130px;left:2060px}
-    #US-CELG160314-1{top:-120px;left:2050px}
-    #US-CELG170221{top:1057px;left:1320px}
-    #US-MBM170023-1a{top:1051px;left:1300px}
-    #REMS-GEN16855{top:1120px;left:2093px}
-    #REMS-GEN16786{top:1125px;left:2098px}
-    #REMS-GEN16942{top:1130px;left:2098px}
-    #REMS-GEN14581{top:1125px;left:2103px}
-    #US-MBM170064{top:1041px;left:1510px}
-    #US-MBM160091-1{top:1051px;left:1520px}
-    #US-MBM170056{top:1061px;left:1530px}
-    #US-MBM170005a{top:1071px;left:1540px}
-    #US-POM170039{top:610px;left:2180px}
-    #US-POM140004-1{top:710px;left:1180px}
-    #REMS-GEN12234{top:1160px;left:1820px}
-    #REMS-GEN16939{top:1150px;left:1830px}
-    #REMS-GEN16941{top:1140px;left:1840px}
-    #REMS-GEN16940{top:1130px;left:1850px}
-    #US-POM160032-1a{top:1135px;left:1825px}
-    #REMS-GEN15711{top:1160px;left:280px}
-    #REMS-GEN16854{top:1120px;left:1870px}
-    #US-CELG160219e{top:1081px;left:1550px}
-    #US-CELG150272-2{top:1180px;left:1885px}
-    #NO-PACT-CODE-01{top:230px;left:60px}
-    #NO-PACT-CODE-02{top:20px;left:60px}
-    #NO-PACT-CODE-03{top:-160px;left:1060px}
-    #NO-PACT-CODE-04{top:270px;left:1600px}
-    #NO-PACT-CODE-05{top:-140px;left:1610px}
-    #NO-PACT-CODE-06{top:-40px;left:1800}
-    #NO-PACT-CODE-07{top:290px;left:1800px}
-    #NO-PACT-CODE-09{top:180px;left:2040px}
-    #NO-PACT-CODE-10{top:640px;left:130px}
-    #NO-PACT-CODE-11{top:1130px;left:2080px}
-    #NO-PACT-CODE-12{top:1110px;left:1520px}
-    #NO-PACT-CODE-13{top:1090px;left:1550px}
-    #NO-PACT-CODE-14{top:1060px;left:1590px}
-    #NO-PACT-CODE-15{top:1050px;left:1230px}
-    #NO-PACT-CODE-16{top:1300px;left:1041px}
-    #NO-PACT-CODE-17{top:1340px;left:1070px}
-    #NO-PACT-CODE-18{top:1370px;left:1100px}
-    #NO-PACT-CODE-19{top:720px;left:1520px}
-    #NO-PACT-CODE-20{top:240px;left:1390px}
-    #NO-PACT-CODE-21{top:40px;left:1290px}}
+    #US-REV170059{    
+    top: 620px;
+      left: 1950px;}
+    #US-POM160051{top: 610px;
+    left: 2160px;}
+    #US-REV150126(1){
+    top: 620px;
+      left: 1940px;}
+    
+    #US-REV170053{    top: 806px;
+    left: 1830px;}
+    #US-POM160033{    top: 790px;
+    left: 1910px;}
+    #US-REV170016(1){
+    top: 620px;
+      left: 1920px;}
+    
+    #US-REV150112-2{
+    top: 620px;
+      left: 1940px;}
+    #US-REV150114-2{
+    top: 620px;
+      left: 1950px;}
+    #US-REV170060{
+    top: 620px;
+      left: 1960px;}
+    #US-REV160021-1{
+    top: 620px;
+      left: 1970px;}
+    #US-REV160119-1{
+      top: 620px;
+      left: 1980px;
+    }
+    #US-REV160051-1{
+          top: 620px;
+      left: 1990px;}
+    #US-REV170095{      top: 620px;
+      left: 1920px;}
+    #US-REV170061{      
+      top: 750px;
+      left: 1920px;}
+    #US-REV150115-1{      
+      top: 750px;
+      left: 1930px;
+    }
+    #US-REV150126-1{    top: 590px;
+    left: 1890px;}
+
+    #US-REV160111-1{top: 750px;left: 1960px;}
+    #US-REV160429{top: 750px;left: 1980px;}
+    #US-REV170016-1{ top: 730px; left: 470px;}
+    #US-REV170081{
+      top: 780px;
+      left: 430px;
+    }
+    #US-REV170096{
+      top: 750px;
+      left: 1990px;
+    }
+    #US-REV170080{
+      top: 775px;
+      left: 90px;
+    }
+    #US-REV140005-2{
+      top: 1080px;
+      left: 1490px;
+    }
+    #US-REV170147{
+      top: 750px;
+      left: 1840px;
+    }
+    #US-REV170147a{
+      top: 750px;
+      left: 1940px;
+    }
+    #US-REV170008{top: 750px;left: 1900px;}
+    #US-REV170037{    top: 690px;
+    left: 300px;}
+    #US-REV170047-1{    top: 747px;
+    left: 393px;}
+    #US-REV170062{top: 730px;
+    left: 320px;}
+    #US-REV150127-2{top: 750px;left: 1500px;}
+    #US-REV160052-1{top: 750px;left: 1240px;}
+    #US-REV170080a{
+          top: 750px;
+    left: 350px;
+    }
 
 
-  }
+
+    #US-POM170001{top: 930px;left: 400px;}
+
+
+
+
+    #US-CELG170119{    top: 40px;
+    left: 2260px;}
+    #US-CELG160223-2{
+      top: -140px;
+      left: 280px;
+    }
+    #US-CELG140129-1{
+      top: -160px;
+      left: 220px;
+    }
+    #US-CELG170196{
+      top: 190px;
+      left: 240px;
+    }
+    #US-CELG170005{top: 1051px;
+      left: 1310px;}    
+    #US-CELG170082{top: 1051px;
+      left: 1320px;}
+    #US-CELG170083{top: 1051px;
+      left: 1330px;}
+    #US-CELG170120{top: 1051px;
+      left: 1340px;}
+    #US-CELG170245{top: 1051px;
+      left: 1350px;}
+    #US-CELG170006-2{top: 1051px;
+      left: 1360px;}
+    #US-CELG170007-2{top: 1051px;
+      left: 1370px;}
+    #US-CELG150127-2{top: 1051px;
+      left: 1380px;}
+    #US-CELG140096h-1{top: 1051px;
+      left: 1390px;}
+    #US-CELG140096f-1{top: 1051px;
+      left: 1400px;}
+    #US-CELG150194a-1{top: 1051px;
+      left: 1410px;}   
+    #US-CELG170091{top: 1051px;
+      left: 1420px;}
+    #US-CELG150048-2{top: 1051px;
+      left: 1430px;}
+    #US-CELG140256-2{top: 1051px;
+      left: 1440px;}
+    #US-CELG160314-1{
+      top: -120px;
+    left: 2050px;
+    }
+    #US-CELG170221{top: 1051px;
+      left: 1300px;}
+    
+    #REMS-GEN16855{top: 1120px;left: 2093px;}
+    #REMS-GEN16786{top: 1125px;left: 2098px;}
+    #REMS-GEN16942{top: 1130px;left: 2098px;}
+    #REMS-GEN14581{top: 1125px;left: 2103px;}
+    #US-MBM170064{
+          top: 1041px;
+      left: 1510px;
+        }
+        
+    #US-MBM160091-1{top: 1051px;
+      left: 1520px;}
+    #US-MBM170056{    
+      top: 1061px;
+      left: 1530px;
+    }
+    #US-MBM170005a{top: 1071px;
+      left: 1540px;}
+
+    #US-MBM170023-1a{
+      top: 1051px;
+      left: 1300px;
+    }
+    
+    
+    #US-POM170039{    
+      top: 610px;
+      left: 2180px;
+    }
+    #US-POM140004-1{
+      top: 710px;
+      left: 1180px;
+    }
+    #REMS-GEN12234{      
+      top: 1160px;
+      left: 1820px;
+    }
+    #REMS-GEN16939{      top: 1150px;
+      left: 1830px;}
+    #REMS-GEN16941{      top: 1140px;
+      left: 1840px;}
+    #REMS-GEN16940{      top: 1130px;
+      left: 1850px;}
+    #REMS-GEN15711{    
+      top: 1160px;
+      left: 280px;}
+    #REMS-GEN16854{    
+      top: 1120px;
+      left: 1870px;
+    }
+    #US-CELG160219e{
+        top: 1081px;
+      left: 1550px;
+      }
+    #US-CELG150272-2{
+        top: 1180px;
+        left: 1885px;    
+    }
+      #US-POM160032-1a{
+        top: 1130px;
+      left: 1850px;
+      }
+    #NO-PACT-CODE-01{top: 230px; left: 60px;}
+    #NO-PACT-CODE-02{        top: 20px;
+    left: 60px;}
+    #NO-PACT-CODE-03{top: -160px;
+    left: 1060px;}
+    #NO-PACT-CODE-04{    top: 270px;
+    left: 1600px;}
+    #NO-PACT-CODE-05{    top: -140px;
+    left: 1610px;}
+    #NO-PACT-CODE-06{    top: -40px;
+    left: 1800;}
+    #NO-PACT-CODE-07{    top: 290px;
+    left: 1800px;}
+    #NO-PACT-CODE-08{    top: -120px;
+    left: 2050px;}
+    #NO-PACT-CODE-09{    top: 180px;
+    left: 2040px;}
+    #NO-PACT-CODE-10{    top: 640px;
+    left: 130px;}
+    #NO-PACT-CODE-11{    top: 1130px;
+    left: 2080px;}
+    #NO-PACT-CODE-12{    top: 1110px;
+    left: 1520px;}
+    #NO-PACT-CODE-13{    top: 1090px;
+    left: 1550px;}
+    #NO-PACT-CODE-14{top: 1060px;
+    left: 1590px;}
+    #NO-PACT-CODE-15{    top: 1050px;
+    left: 1230px;}
+    #NO-PACT-CODE-16{top: 1300px;
+    left: 1041px;}
+    #NO-PACT-CODE-17{top: 1340px;
+    left: 1070px;}
+    #NO-PACT-CODE-18{    top: 1370px;
+    left: 1100px;}
+    #NO-PACT-CODE-19{    top: 720px;
+    left: 1520px;}
+    #NO-PACT-CODE-20{
+      top: 240px;
+      left: 1390px;
+    }
+    #NO-PACT-CODE-21{
+      top: 40px;
+      left: 1290px;
+    }
+
+
+
+
 

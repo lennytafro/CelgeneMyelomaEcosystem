@@ -62,7 +62,8 @@
                                     <td class="labelcell"><p>MLR Status: </p></td><td> <p> {{ getAssetMLR(item) }}</p></td>
                                 </tr>
                                 <tr>
-                                    <td class="labelcell"><p>Performance: </p></td><td> <p> {{ getAssetPerformance(item) }}</p></td>
+                                    <td class="labelcell"><p>Performance: </p></td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerf01_RED(item)" class="perf-icon"><img v-bind:src="getPerf02Icon()" title="Under Expectations" v-if="checkPerf02_ORANGE(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerf03_NEUTRAL(item)" class="perf-icon"><img v-bind:src="getPerf04Icon()" title="Over Expectations" v-if="checkPerf04_CHARTREUSE(item)" class="perf-icon">
+                                        <img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerf05_GREEN(item)" class="perf-icon"></td>
                                     <td class="labelcell"><p>% of Goal: </p></td><td> <p> {{ getAssetGoalPercent(item) }}%</p></td>
                                 </tr>
                                 <tr>
@@ -116,7 +117,7 @@
                 <transition-group name="list" tag="ul" class="card_list">
                     <li v-for="item in items" v-bind:key="item" class="list-item"  v-bind:id="item['fields']['Celgene Tactic ID']" v-on:click="popScrotie(item)" >
                         <div>
-                            <table width="100%">
+                            <table width="100%" border="0">
                                 <tr>
                                     <!-- BRAND LOGO -->
                                     <td align="left"><img :src="getAssetBrandLogo(item)" alt="" v-if="item['fields']['Brand Logo']" class="brandthumb"></td>
@@ -139,7 +140,20 @@
                             <p class="tactic"> {{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</p>
                             <!-- ASSET NAME -->
                             <h3>{{ getAssetName(item) }}</h3>
-                            </p>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left">Performance</td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right">
+                                        <img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerf01_RED(item)" class="perf-icon">
+                                        <img v-bind:src="getPerf02Icon()" title="Under Expectations" v-if="checkPerf02_ORANGE(item)" class="perf-icon">
+                                        <img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerf03_NEUTRAL(item)" class="perf-icon">
+                                        <img v-bind:src="getPerf04Icon()" title="Over Expectations" v-if="checkPerf04_CHARTREUSE(item)" class="perf-icon">
+                                        <img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerf05_GREEN(item)" class="perf-icon">
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </li>
                 </transition-group>

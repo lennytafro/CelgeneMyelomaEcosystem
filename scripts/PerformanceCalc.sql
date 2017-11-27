@@ -1,0 +1,1 @@
+IF({Goal Percent} < 0, "Error!",IF({Goal Percent} < 20, " Disappointing expectations ",IF({Goal Percent} < 40, "Under Expectations",IF({Goal Percent} < 60,"At Expectations",IF({Goal Percent} < 80,"Above expectations",IF({Goal Percent} <= 100, "Exceeds expectations","Error!"))))))
